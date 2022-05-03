@@ -6,9 +6,9 @@ git init
 git add .
 git commit -m "init depot"
 
--- Aller sur https://github.com/fpicot31 et creer un nouveau depot
+-- Aller sur https://github.com/Nelo32 et creer un nouveau depot
 
-git remote add origin https://github.com/fpicot31/Jenkins-docker.git
+git remote add origin https://github.com/Nelo32/Devops.git
 
 git push -u origin master
 
