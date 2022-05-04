@@ -6,11 +6,11 @@ node {
     }
 
     stage('Build') {
-        app = docker.build("atos06/ipiformation")
+        app = docker.build("kaosyo/devops")
     }
 
     stage('Test') {
-        docker.image('atos06/ipiformation').withRun('--rm -p 80:80 --name devops') { c ->
+        docker.image('kaosyo/devops').withRun('--rm -p 80:80 --name devops') { c ->
         sh 'docker ps'
         sh 'docker exec devops curl localhost:80'
         sh 'echo "Tests passed"'
@@ -19,7 +19,7 @@ node {
     }
 
     stage('Livraision sur DockerHub') {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credential') {
             app.push("${env.BUILD_NUMBER}")
             app.push("1.0")
         }
